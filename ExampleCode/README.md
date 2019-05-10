@@ -1,5 +1,5 @@
 # Learining C++ Project
-## This learning project is derived from th book c++ by Bjarne Stroustrup
+## This learning project is derived from th book c++ primer by Stanlee B. Lippman
 
 ## 1. Basics
     * C++ Memory Model

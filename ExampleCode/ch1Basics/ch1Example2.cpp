@@ -19,10 +19,10 @@ namespace tEXAMLPE2
 
     void test1()
     {
-        int         a = 0x10;
+        int         a = 0x20;
         long        b = 0xff;
-        long long   c = 0xffffaaaaffffaaaa;
-        short int   d = 0xffaa;
+        long long   c = 0x7fffaaaaffffaaaa;
+        short int   d = 0x7faa;
 
         std::cout << "Printing a: " << a << std::endl;
         std::cout << "Printing b: " << b << std::endl;
@@ -32,7 +32,7 @@ namespace tEXAMLPE2
 } // namespace tEXAMLPE2
 
 
-int main()
+int main(int argc, const char* argv[])
 {
     // call the test function //
     tEXAMLPE2::test1();
