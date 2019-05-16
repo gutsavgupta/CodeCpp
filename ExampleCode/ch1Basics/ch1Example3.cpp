@@ -94,7 +94,9 @@ namespace tEXAMPLE3
     void test6()
     {
         // std::cerr testing //
-        // TODO //
+        std::cout << "Executing test5()::" << std::endl;
+        std::cerr << "Un-buffered stream:" << std::endl;
+        std::cerr << "Any information will be printed irrespective of stdout buff redirected to anything else" << std::endl;
     }
 
 };
@@ -103,11 +105,11 @@ namespace tEXAMPLE3
 
 int main(int argc, char const *argv[])
 {
-    
     tEXAMPLE3::test1();
     tEXAMPLE3::test2();
     tEXAMPLE3::test3();
     tEXAMPLE3::test4();
     tEXAMPLE3::test5();
+    tEXAMPLE3::test6();
     return 0;
 }

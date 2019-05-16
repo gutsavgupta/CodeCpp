@@ -42,15 +42,13 @@ namespace tEXAMPLE4{
                 out << "Total Price\t\t: "  << (obj.pric*obj.qnty) << std::endl;
                 return out; 
             }
-            
-               
     };
     
 } 
 
 /* This code contains << and >> operator overloaded 
  * 1. code dosen't handles invalid input (TODO)
- * 2. code dosen't support +,+= operator error handles
+ * 2. code dosen't support +,+= operator & error handles
 */
 
 int main(int argc, char const *argv[]){
