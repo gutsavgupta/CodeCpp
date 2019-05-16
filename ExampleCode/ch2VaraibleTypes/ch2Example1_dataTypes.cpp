@@ -38,6 +38,9 @@ namespace tEXAMPLE1
         std::cout << "size of float\t\t: " << sizeof(float) << std::endl;
         std::cout << "size of double\t\t: " << sizeof(double) << std::endl;
         std::cout << "size of long double\t: " << sizeof(long double) << std::endl;
+        std::cout << "size of long long*\t: " << sizeof(long long*) << std::endl;
+        std::cout << "size of long double*\t: " << sizeof(long double*) << std::endl;
+        std::cout << "size of int*\t\t: " << sizeof(int*) << std::endl; 
     }
 
     void test2()

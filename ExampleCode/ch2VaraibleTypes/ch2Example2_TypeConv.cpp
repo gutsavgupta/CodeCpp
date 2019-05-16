@@ -2,7 +2,16 @@
  * We will try to explore how does
  * complier perform type Conversion
  * for various type Conversion statements 
+ * 
+ * Note:    rule 1. Between signed, unsigned complier converts the variable type to unsigned
+ *                  int a, unsigned int b, (a*b) --> unsigned
+ *                  auto c = (a*b), Type(c) --> unsigned int
+ * 
+ *          rule 2. Data Type conversion: if auto conversion is supported by compiler for two data type
+ *                  then smaller size data type is converted to larger size data type
+ *                  char --> int --> long long --> float --> double --> long double
 */
+
 #include <iostream>
 
 namespace tEXAMPLE2{
@@ -33,6 +42,23 @@ namespace tEXAMPLE2{
         unsigned int b = 10;
 
         std::cout << "b - a: " << b - a << " int version: " << (int)(b - a) << std::endl; 
+    }
+
+    void test4()
+    {
+        unsigned char a = 250;
+        int  b = 10;
+        auto c = (a+b);
+        std::cout << "The value of c: " << c << " Size of c: " << sizeof(c) << std::endl;
+
+        long long x = 30LL;
+        double y = 3.125;
+        auto z = x+y;
+        auto w = x*y;
+
+        std::cout << "The value of z: " << z << " Size of z: " << sizeof(z) << std::endl;
+        std::cout << "The value of w: " << w << " Size of w: " << sizeof(w) << std::endl;
+
     }    
 }
 
@@ -41,5 +67,6 @@ int main(int argc, char const *argv[]){
     tEXAMPLE2::test1();
     tEXAMPLE2::test2();
     tEXAMPLE2::test3();
+    tEXAMPLE2::test4();
     return 0;
 }
