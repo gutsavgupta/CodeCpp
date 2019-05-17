@@ -58,6 +58,9 @@ namespace tEXAMPLE1
 
         std::cout << "Min double\t: " << std::numeric_limits<double>::min() << std::endl;           // double numeric limits 
         std::cout << "Max double\t: " << std::numeric_limits<double>::max() << std::endl;
+
+        std::cout << "Min float\t: " << std::numeric_limits<float>::min() << std::endl;           // double numeric limits 
+        std::cout << "Max float\t: " << std::numeric_limits<float>::max() << std::endl;
     }   
 }
 

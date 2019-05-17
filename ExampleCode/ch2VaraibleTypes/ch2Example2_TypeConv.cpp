@@ -36,16 +36,16 @@ namespace tEXAMPLE2{
         std::cout << "multiply a * b: " << (a*b) << std::endl;
     }
 
-    void test3()
-    {
+    void test3(){
+
         unsigned int a = 32;
         unsigned int b = 10;
 
         std::cout << "b - a: " << b - a << " int version: " << (int)(b - a) << std::endl; 
     }
 
-    void test4()
-    {
+    void test4(){
+        
         unsigned char a = 250;
         int  b = 10;
         auto c = (a+b);
@@ -58,6 +58,9 @@ namespace tEXAMPLE2{
 
         std::cout << "The value of z: " << z << " Size of z: " << sizeof(z) << std::endl;
         std::cout << "The value of w: " << w << " Size of w: " << sizeof(w) << std::endl;
+
+        auto letsee = 3.14e1L;          // type of 3.14e1L is long double -> 16 Byte::128 biclearts
+        std::cout << "The value of letsee: " << letsee << " Size of letsee: " << sizeof(letsee) << std::endl;
 
     }    
 }

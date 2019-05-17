@@ -5,4 +5,25 @@
  * variable 
  * 
  * Note: there is some suffix and prefix 
+ * 
+ * (character and string literal)
+ * prefix       Meaning                 type
+ * u            Unicode 16 character    char16_t
+ * U            Unicode 32 character    char32_t
+ * L            Wide character          wchar_t
+ * u8           utf-8(string literal)   char
+ * 
+ * Integer literal
+ * suffix           Minimum type
+ * u or U           unsigned
+ * l or L           long
+ * ll or LL         long long
+ * 
+ * Floating point literal
+ * suffix           Type
+ * f or F           float
+ * l or L           long double
+ * 
+ * Note: for Integer Minumum Type concept exist
+ * for floating point it doesn't, if range exceed it prints inf 
 */
