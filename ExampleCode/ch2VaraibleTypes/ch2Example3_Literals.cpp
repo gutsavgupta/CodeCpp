@@ -24,6 +24,13 @@
  * f or F           float
  * l or L           long double
  * 
+ * pointer literals
+ * nullptr (not same as NULL)
+ * 
+ * bool literals
+ * 1. true
+ * 2. fals
+ * 
  * Note: for Integer Minumum Type concept exist
  * for floating point it doesn't, if range exceed it prints inf 
 */
