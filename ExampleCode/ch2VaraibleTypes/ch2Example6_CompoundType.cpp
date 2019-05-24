@@ -4,6 +4,9 @@
  * 
  * Note: 
  * 1. Reference variable has to be intialized with object of same types
+ * ** Exception to above contion:
+ *    1. You can assign const reference a non-const obj of type casted obj
+ *    2. TODO
  * 2. Once intialized, references does not refer to other object during lifetime
  * 3. Object and address and Reference address are same.
  * 
@@ -94,6 +97,16 @@ namespace tEXAMPLE6{
         int **&rppi = ppi;                              // reference to pointer to pointer
         // int* ni, &r = ni;                            // Invalid declaration
 
+    }
+
+    void test5(){
+
+        long li = 0;
+        float d = 3.14;
+        // int &r = (int)d;     // invalid statement the expression become r-value when type casted
+                                // intial expression or intializer of references should be lvalue expression
+
+        long &ri = li = (long)d;// OK: as assignment of li to ri comes as lvalue
     }
 }
 

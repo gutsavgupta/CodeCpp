@@ -24,6 +24,25 @@
  * 
  * Note:
  * 1. You can change the const obj val, using the pointer application on the memory
+ * 2. You can reference a reference only reference rule should be applied
+ * 3. for leading const pointer expression start from right to left
+ *      for ex:
+ *      int const * const *ppi;
+ *      1. ppi is a pointer
+ *      2. ppi is a pointer to const pointer
+ *      3. ppi is a pointer to const pointer to const int
+ * 4. To expand the scope of const variable, we should use extern
+ *    while defining the const variable  
+ *      EX: const int var1 = 10;        // limit the scope local to file
+ *          extern const int var1 = 10; // expand the scope of var1 across files
+ * 
+ * 5. const reference can accpet the rvalue expression (by the way assignment is implemented)
+ * 
+ * IMPORTANT POINT TO LOOK AT
+ * 1. Check whether const obj are intializing or Note
+ * 2. pointer to const obj doesn't require initalizer as ptr is not const
+ * 3. non-const pointer or non-const refernce can point or intialized with const obj
+ * 4. const reference can be initialized with r-value
  * 
 */
 
@@ -75,8 +94,8 @@ namespace tEXAMPLE7{
         // but compiler allow such kind of reference
         // reason being you are allowed to change the dval or llval
         // usinf ri1 or ri2;
-        const int &ri1 = dval;
-        const int &ri2 = llval;
+        int const &ri1 = dval;
+        int const &ri2 = llval;
 
         // lets check what can happen
         // proposal: compiler implements above condition as follows
@@ -96,12 +115,36 @@ namespace tEXAMPLE7{
         std::cout << "Adr of ri1 & ri2: " << &ri1 << " & " << &ri2 << std::endl;
         std::cout << "Adr of dval & llval: " << &dval << " & " << &llval << std::endl;
     }
+
+    void test4(){
+
+        int a = 10;
+        int &ar = a;
+        int &arr = ar;
+        std::cout << &a << " " << &ar << " " << &arr << std::endl;
+    }
+
+    // declaring the constant int var1 //
+    extern const int var1;
+
+    void test5(){
+
+        // testing the scope of var1 //
+        std::cout << var1 << std::endl;
+
+    }
+
 }
 
 int main(int argc, char const *argv[]){
 
+    #if 0
     tEXAMPLE7::test1();
     tEXAMPLE7::test2();
     tEXAMPLE7::test3();
+    tEXAMPLE7::test4();
+    #endif
+    tEXAMPLE7::test5();
     return 0;
 }
+
