@@ -6,3 +6,7 @@
 namespace tEXAMPLE7{
     extern const int var1 = 100;
 }
+
+namespace tEXAMPLE8{
+    extern const int var1 = 100;
+}
