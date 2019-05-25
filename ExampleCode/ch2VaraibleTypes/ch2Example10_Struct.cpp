@@ -4,7 +4,13 @@
  * 
  * struct has default and parameterize intializer in the
  * definiton of itself
+ * 
+ * __HEADER_GAURD__ must be included while defining any header
 */
+
+#ifndef _SALESDATA_
+#define _SALESDATA_
+
 #include <iostream>
 
 namespace tEXAMPLE10{
@@ -55,6 +61,14 @@ int main(int argc, char const *argv[]){
 
     // Scope funtions 
     tEXAMPLE10::test1();
-    
+
     return 0;
 }
+
+// illustration of avoiding recursion //
+// #define _TESTRECC_
+#ifndef _TESTRECC_
+#include "ch2Example10_Struct.cpp"
+#endif
+
+#endif
