@@ -6,6 +6,10 @@
 
 #include <iostream>
 
+// global variable for all Scope
+int var1{100};
+int var2{200};
+
 namespace tEXAMPLE5{
     
     // global variable //
@@ -15,11 +19,12 @@ namespace tEXAMPLE5{
     void test1(){
 
         // declaring the outer scope //
-        int var1 = 0;
-        int var2 = 1;
+        int var1 = 1;
+        int var2 = 2;
 
         std::cout << "Local values of var1 & var2: " << var1 << " " << var2 << std::endl;
-        std::cout << "Global values of var1 & var2: " << tEXAMPLE5::var1 << " " << tEXAMPLE5::var2 << std::endl;
+        std::cout << "tExample::Global values of var1 & var2: " << tEXAMPLE5::var1 << " " << tEXAMPLE5::var2 << std::endl;
+        std::cout << "Global variable var1 & var2: " << ::var1 << " " << ::var2 << std::endl;
     }
 
     void test2(){
