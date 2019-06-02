@@ -23,7 +23,16 @@
  * 
  * part(3)::library to perform vaious operation on char
  * #include <cctpe>
- * contains function likes, isupper(c), islower(c), isgraph(c), isspace(c) etc..  
+ * contains function likes, isupper(c), islower(c), isgraph(c), isspace(c) etc..
+ * 
+ * part(4)::For logical "&&" operator, the if any condition becomes false in sequence
+ *          the next condition is not evaluated, for example:
+ *          while( i < vector.size() && vector[i] == stuff )
+ *          {.....other stuff....}
+ *          in this scenario if i overflows vector.size(), then vector[i]
+ *          won't get evaluated.
+ * 
+ * part(5)::In range loop, the range will not change even if container size changes  
 */
 
 #include <iostream>
@@ -73,6 +82,18 @@ namespace tEXAMPLE1
         std::cout << "str1: " << str1 << std::endl;
         std::cout << "str2: " << str2 << std::endl;
     }
+
+    void test4()
+    {
+        std::string hello("This World is bad!!");
+        for(auto &c: hello){ 
+            c = 'I';
+        }   std::cout << hello << std::endl;
+
+        // random test
+        // for(char a=0; a < hello.size(); a++){hello[a] = 'x';}
+        // std::cout << hello << std::endl;
+    }
 }
 
 int main(int argc, const char *argv[])
@@ -80,5 +101,6 @@ int main(int argc, const char *argv[])
     // insert code below //
     tEXAMPLE1::test1();
     tEXAMPLE1::test3();
+    tEXAMPLE1::test4();
     return 0;
 }
