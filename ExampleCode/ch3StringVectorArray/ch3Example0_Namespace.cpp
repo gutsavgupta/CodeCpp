@@ -1,7 +1,7 @@
 /* Namespace Example: Basic use and declaration 
  * Rules to use namespace::declaration from a namespace
  * 
- * 1. using namespaceT::funcName    // funcName becomes visible to the scope
+ * 1. using namespaceT::funcName    // funcName, types, vars any other declaration becomes visible to the scope
  * 2. using namespaceT              // all funcName os namespaceT become visible
 */
 
