@@ -51,6 +51,19 @@ namespace tEXAMPLE2
         // }
     };
 
+    struct myStr: std::string
+    {
+        using str = std::string;
+        using str::str;             // exporting all constuctor of class string
+                                    // if not present the only default constuctor will be called for str                             
+
+        myStr& toUpperCase()
+        {
+            for(auto &c: *this){ c = std::toupper(c); }
+            return *this;
+        }
+    };
+
     void test1()
     {
         // vector<long> longVector;             // valid declaration
@@ -92,10 +105,27 @@ namespace tEXAMPLE2
         str words;
         int input;
         while(cin>>input){vecInt.push_back(input);}
+        cin.clear();    // [re]set the error sate 
         while(cin>>words){vecStr.push_back(words);}
 
-        for(str w: vecStr){std::cout << w << ",";}std::cout << std::endl;
-        for(int i: vecInt){std::cout << i << ",";}std::cout << std::endl; 
+        for(str &w: vecStr){std::cout << w << ",";}std::cout << std::endl;
+        for(int &i: vecInt){std::cout << i << ",";}std::cout << std::endl;
+
+        // Note: vectors<int or Type> support ==, <, <=, >=, > operator
+        //       same as string (if Type class support comparison), the
+        //       == --> mean all element are equal in both vectors and same # element
+        //       < means eith first uncommon element is greater in right vector or
+        //         length of right vector is large (given all elements till now are equal)
+        //       > vice versa  
+    }
+
+    void test3()
+    {
+        myStr testStr = "hello normal init";
+        cout << testStr.toUpperCase() << endl;
+        //myStr *ptrStr = &testStr;         // pointer to data type
+        //ptrStr->toUpperCase();            // accessing memeber by pointing operator
+
     }
 }
 
@@ -104,5 +134,6 @@ int main( int argc, const char *argv[])
     /* write the code here */
     tEXAMPLE2::test1();
     tEXAMPLE2::test2();
+    tEXAMPLE2::test3();
     return 0;
 }     

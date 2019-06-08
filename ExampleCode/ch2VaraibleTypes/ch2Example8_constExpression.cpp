@@ -14,7 +14,9 @@
  *          5. constexpr pointer can point to obj whoes memory addr remains fixed
  *          6. local variable are not considered to be valid to be assinged to constexpr pointer as
  *             their addr can change in run time;
- * 
+ *          7. Const are not evaluated at compile time, you can't change const variable
+ *             where as constexpr are evaluated at compile time, you can assume that compile
+ *             will replace the var with its value in the code and then compile (kind-off, not always true)
  * Usage:
  *          TODO              
  *
@@ -24,7 +26,7 @@
 
 namespace tEXAMPLE8{
 
-    extern const int var1;
+    // extern const int var1;
     int globalVar = 100;
 
 
@@ -49,10 +51,22 @@ namespace tEXAMPLE8{
         // declared out of any function
         // pseduo-global scope
         constexpr int *ptr1 = &globalVar; 
-        constexpr const int *ptr2 = &var1;
+        // constexpr const int *ptr2 = &var1;
 
         std::cout << "Addr of globalVar: " << ptr1 << std::endl;
-        std::cout << "Addr of var1: " << ptr2 << std::endl;
+        // std::cout << "Addr of var1: " << ptr2 << std::endl;
+
+        // changing value stored at constexpr
+        constexpr int val = 10;
+        std::cout << "&val: " << &val << std::endl;
+        std::cout << "val : " << val  << std::endl;
+
+        int *constPtr = (int *)&val;
+        *constPtr = 20;
+        std::cout << "constPtr: "   << constPtr << std::endl;
+        std::cout << "*constPtr: "  << *constPtr<< std::endl;
+        std::cout << "val: "        << val      << std::endl;
+
     }
 }
 
