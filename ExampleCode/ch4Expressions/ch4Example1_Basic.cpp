@@ -136,7 +136,7 @@
  * 
  *  # static_cast<>
  *  any well-defined cast excluding low-level const can be performed using 
- *  static_cast<>, it indicates that the conversion is intentional and awared
+ *  static_cast<>, it indicates that the conversion is intentional and well-thought
  *  static_cast<> can cast void* ptr to any ptr
  *  and const void* to any const ptr
  *  static_cast is the first cast you should attempt to use. 

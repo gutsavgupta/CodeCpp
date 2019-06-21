@@ -45,6 +45,8 @@ namespace tEXAMPLE3
     void test1()
     {
         str s1 = "hello world!!";
+        // do string library define such static_cast
+        // conversion ??
         auto sItr = static_cast<str::iterator>(&s1[3]);
         for(;sItr != s1.end(); sItr++)
         {
