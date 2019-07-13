@@ -15,5 +15,3 @@ add_executable(mainProgram
     "./src/main.cpp")
 target_link_libraries(mainProgram
     saleData)
-    
-
