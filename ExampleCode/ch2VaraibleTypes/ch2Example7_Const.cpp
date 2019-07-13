@@ -47,6 +47,7 @@
 */
 
 #include <iostream>
+#include <vector>
 
 namespace tEXAMPLE7{
 
@@ -131,7 +132,39 @@ namespace tEXAMPLE7{
 
         // testing the scope of var1 //
         std::cout << var1 << std::endl;
+    }
 
+    // test 6 to test whether copy function of a
+    // class is called when taking const-reference to it
+    struct foo_vec : public std::vector<int>
+    {
+        using base = std::vector<int>;
+        using base::base;
+
+        // copy constructor //
+        foo_vec(const foo_vec& B) : base(B)
+        {
+            std::cout << __func__ << "::"
+                        << "copy_const called" 
+                        << std::endl;
+        }
+
+
+        foo_vec(const foo_vec&& B) : base(B)
+        {
+            std::cout << __func__ << "::"
+                        << "lvalue copy_const called" 
+                        << std::endl;
+        }
+    };
+
+    void test6()
+    {
+        foo_vec a  = foo_vec{1,2,3,4};
+        foo_vec b  = a;
+        foo_vec &c = a;
+        //const foo_vec temp = a;
+        const foo_vec &tref = a;
     }
 
 }
@@ -144,7 +177,9 @@ int main(int argc, char const *argv[]){
     tEXAMPLE7::test3();
     tEXAMPLE7::test4();
     #endif
+    tEXAMPLE7::test3();
     tEXAMPLE7::test5();
+    tEXAMPLE7::test6();
     return 0;
 }
 
