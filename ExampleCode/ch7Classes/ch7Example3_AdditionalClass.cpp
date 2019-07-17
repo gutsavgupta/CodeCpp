@@ -71,6 +71,29 @@
  * Note: data members can be specified to be of a class type only if the class has been defined. 
  * The type must be complete because the compiler needs to know how much storage the data member 
  * requires.
+ *
+ * #####################################################################################
+ * ## Class Friendship
+ * #####################################################################################
+ * A class can also make another class its friend or it can declare specific 
+ * member functions of another (previously defined) class as friends. In addition, a friend 
+ * function can be defined inside the class body. Such functions are implicitly inline
+ * 
+ * Note: It is important to understand that friendship is not transitive. That is, 
+ *       if class Window_mgr has its own friends, those friends have no special 
+ *       access to Screen.
+ *
+ * Note: Classes and nonmember functions need not have been declared before they 
+ *       are used in a friend declaration
+ *
+ * Note: When a name first appears in a friend declaration, that name is implicitly 
+ *       assumed to be part of the surrounding scope. However, the friend itself is 
+ *       not actually declared in that scope
+ *
+ * Note: Even if we define the function inside the class, we must still provide a 
+ *       declaration outside of the class itself to make that function visible. 
+ *       A declaration must exist even if we only call the friend from members of 
+ *       the friendship granting class
  */
 
 int main(int argc, char* argv[])
