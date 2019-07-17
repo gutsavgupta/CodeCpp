@@ -16,11 +16,7 @@ class Person
 {
     public:
         //@constructor
-        Person():
-            _addr{"INVALID"},
-            _name{"INVALID"} 
-        {
-        }
+        Person() = default;
 
         //@object calls
         const std::string& getName() const;
