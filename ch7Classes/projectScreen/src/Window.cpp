@@ -1,4 +1,5 @@
 #include <Window.hpp>
+#include <Screen.hpp>
 
 namespace windowMgr{
 
@@ -12,7 +13,8 @@ void window::clear(screenIdx idx)
     try
     {
         auto Screen         = _screen.at(idx);
-        Screen._contents    = std::string((Screen._height*Screen._width), ' '); 
+        Screen._contents    = std::string((Screen._height*Screen._width), ' ');
+        auto val            = screen(80,24,' ')()()()()()();
     }
     catch(std::exception& e)
     {

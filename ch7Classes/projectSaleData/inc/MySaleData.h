@@ -44,6 +44,14 @@ public:
     // @utility function
     bool combine(const saleData& obj);
 
+    // @delegating constructor
+    saleData(std::string isbn)
+        :   saleData(isbn, 0.0){}
+
+    saleData(std::string isbn,
+             double      price)
+        :   saleData(isbn, price, 0) {}
+
     // @class constructors
     saleData()
         :   _book(){}

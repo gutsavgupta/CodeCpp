@@ -9,6 +9,7 @@
 #include <Window.hpp>
 #include <iostream>
 #include <string>
+#include <vector>
 
 // forward delaration
 namespace windowMgr{
@@ -47,7 +48,7 @@ class screen
                             return _contents[_cursor]; }
 
         // @explicit inline
-        inline char get(pos h, pos w) const;
+        char get(pos h, pos w) const;
 
         // @inlined later
         screen& move(pos r, pos c);
@@ -56,6 +57,11 @@ class screen
         screen& set(pos, pos, char);
         screen& display(std::ostream& out);
         const screen& display(std::ostream& out) const;
+
+        screen& operator()(pos a=10, pos b=20)
+        {
+            return move(a,b);
+        }
     private:
         pos _cursor = 0;
         pos _height = 0;
@@ -69,6 +75,13 @@ class screen
         // @helper function
         void _display(std::ostream &out) const;
         
+        // @non-static function
+        void _chageDefault() const;
+
+        static double rate;
+        static const int vecSize = 20;
+        static std::vector<double> vec;
+
 };
 
 }// namespace screenMgr

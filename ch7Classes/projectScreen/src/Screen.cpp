@@ -15,7 +15,6 @@ char screen::get(pos h, pos w) const
     return '\0';
 }
 
-inline 
 screen& screen::move(pos r, pos c)
 {
     if ( r <= _height && c <= _width )
@@ -26,14 +25,12 @@ screen& screen::move(pos r, pos c)
     return *this;
 }
 
-inline
 screen& screen::set(char c)
 {
     _contents[_cursor] = c;
     return *this;
 }
 
-inline
 screen& screen::set(pos r, pos c, char a)
 {
     if( r <= _height && c <= _width)
@@ -44,25 +41,25 @@ screen& screen::set(pos r, pos c, char a)
     return *this;
 }
 
-inline
 screen& screen::display(std::ostream& out)
 {
     _display(out);
     return *this;
 }
 
-inline
 const screen& screen::display(std::ostream& out) const
 {
     _display(out);
     return *this;
 }
 
-inline
 void screen::_display(std::ostream& out) const
 {
     out << _contents;
 }
+
+double screen::rate = 2.4;
+std::vector<double> screen::vec(vecSize);
 
 }// namespace screenMgr
 
